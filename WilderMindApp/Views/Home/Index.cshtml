@@ -1,24 +1,81 @@
-﻿<div class="row">
+﻿@model   IEnumerable<WilderMindApp.Data.Topic>
+
+<div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Blank Page
-            <small>Subheading</small>
+            Message Board
+            <small>Latest Messages</small>
         </h1>
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
             </li>
             <li class="active">
-                <i class="fa fa-file"></i> Blank Page
+                <i class="fa fa-file"></i> Message Board
             </li>
         </ol>
     </div>
     <div class="row">
         <div class="col-lg-12">
-           
-                <p>heyheyeh</p>
-                
-           
+            @if (ViewBag.mailSent)
+            {
+                <p>Mail Sent</p>
+            }
+            else
+            {
+                <p>Mail could not sent</p>
+            }
+            <p>heyheyeh</p>
+
         </div>
     </div>
+    <div class="messages row">
+        <div class="message">
+            <div class="title col-md-9">Consectetur adipiscing elit fusce vel.</div>
+            <div class="date col-md-2">Feb 12,2013</div>
+            <div class="contents col-md-12">Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</div>
+            <div class="toolbar col-md-12">
+                <button class="btn btn-primary reply">Reply</button>
+            </div>
+            <div class="replies col-md-12"></div>
+        </div>
+        <div class="message">
+            <div class="title col-md-9">Consectetur adipiscing elit fusce vel.</div>
+            <div class="date col-md-2">Feb 12,2013</div>
+            <div class="contents col-md-12">Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</div>
+            <div class="toolbar col-md-12">
+                <button class="btn btn-primary reply">Reply</button>
+            </div>
+            <div class="replies col-md-12"></div>
+        </div>
+        <div class="message">
+            <div class="title col-md-9">Consectetur adipiscing elit fusce vel.</div>
+            <div class="date col-md-2">Feb 12,2013</div>
+            <div class="contents col-md-12">Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</div>
+            <div class="toolbar col-md-12">
+                <button class="btn btn-primary reply">Reply</button>
+            </div>
+            <div class="replies col-md-12">
+                <div class="reply">
+                    <div class="created pull-right">
+                        Feb 28, 2013
+                    </div>
+                    <div class="content">
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+@foreach (var topic in Model)
+{
+    <div>
+        @topic.Title
+    </div>
+    <div>
+        --@topic.Body
+    </div>
+}

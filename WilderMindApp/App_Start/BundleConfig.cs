@@ -26,7 +26,8 @@ namespace WilderMindApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/sb-admin.css",
-                      "~/font-awesome/css/font-awesome.min.css"));
+                      "~/font-awesome/css/font-awesome.min.css",
+                      "~/Content/Site.css"));
         }
     }
 }
