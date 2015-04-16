@@ -12,6 +12,8 @@ namespace WilderMindApp.App_Start
     using Ninject.Web.Common;
     using WilderMindApp.Services;
     using WilderMindApp.Data;
+    using System.Web.Http;
+    using WebApiContrib.IoC.Ninject;
 
     public static class NinjectWebCommon 
     {
@@ -48,6 +50,12 @@ namespace WilderMindApp.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+               
+                //Bunu yazdik
+                GlobalConfiguration.Configuration.DependencyResolver =
+                    new NinjectResolver(kernel);
+                //
+
                 return kernel;
             }
             catch

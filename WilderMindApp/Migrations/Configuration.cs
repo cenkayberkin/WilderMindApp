@@ -11,7 +11,7 @@ namespace WilderMindApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "WilderMindApp.Data.MessageBoardContext";
             
         }
@@ -70,7 +70,7 @@ namespace WilderMindApp.Migrations
 
             };
 
-            context.Topics.Add(topic);
+            context.Topics.AddOrUpdate(topic);
             context.Topics.Add(topic1);
             context.SaveChanges();
         }
